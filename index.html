@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sikanoppapeli</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Sikanoppapeli</h1>
+    <div id="asetukset">
+        <label for="pelaajaLkm">Pelaajien määrä:</label>
+        <input type="number" id="pelaajaLkm" min="2" max="10" value="2">
+        
+        <div id="peliVersio">
+            <input type="radio" id="yksiNoppa" name="peliTyyppi" value="yksiNoppa" checked>
+            <label for="yksiNoppa">Yksi noppa</label>
+            <input type="radio" id="kaksiNoppaa" name="peliTyyppi" value="kaksiNoppaa">
+            <label for="kaksiNoppaa">Kaksi noppaa</label>
+        </div>
+    
+        <div id="pelaajaNimet"></div>
+        
+        <div id="virheviestit"></div>
+    
+        <button id="aloitaPeli">Aloita peli</button>
+        <button id="näytäSäännöt">Näytä säännöt</button>
+    </div>
+    <div id="peli" style="display:none;">
+        <div id="pelaajaVuoro"></div>
+        <div id="noppaHeitto">
+            <img id="noppa1" src="" alt="Noppa 1" style="display:none;">
+            <img id="noppa2" src="" alt="Noppa 2" style="display:none;">
+        </div>
+        <button id="heitäNoppa">Heitä noppa</button>
+        <button id="pidä">Pidä</button>
+        <button id="nollaaPeli">Nollaa peli</button>
+        <div id="pisteet"></div>
+    </div>
+
+    <div id="säännötModal" class="modal" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalDescription">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle">Säännöt</h2>
+            <p id="modalDescription"><strong>
+                Pelin tarkoitus on kerätä sata pistettä tai enemmän (pistemäärän voi sopia ennen peliä) heittämällä noppaa tai noppia ja laskemalla heittojen summa yhteen.
+                Pelaaja heittää omalla vuorollaan noppaa niin pitkään, kunnes:
+            </strong></p>
+            <ul><i>
+                <li>Heittää ykkösen</li>
+                <li>Päättää lopettaa heittämisen.</li>
+            </i></ul>
+            <p><strong>
+                Jos pelaaja heittää ykkösen, hänen vuoronsa loppuu ja sen kierroksen heittojen summa nollataan. Vuoro siirtyy seuraavalle pelaajalle. Jos pelaaja päättää lopettaa heittämisen ennen kuin hän heittää ykkösen, heittojen summa lasketaan yhteen ja lisätään edellisen kierroksen summaan. Tämän jälkeen vuoro siirtyy seuraavalle pelaajalle.
+            </strong></p>
+            <p><strong>
+                Sikaa voit pelata myös kahdella nopalla, jolloin säännöt muuttuvat hieman:
+            </strong></p>
+            <ul><i>
+                <li>Kun heität tuplat, saat tuplapisteet (esim. kaksi kolmosta on 12 pisteen arvoinen heitto)</li>
+                <li>Kun heität kaksi ykköstä, saat 25 pistettä</li>
+                <li>Kun heität vain toisella nopalla ykkösen, vuoro siirtyy seuraavalle pelaajalle etkä saa pisteitä</li>
+                <li>Kun heität kolme tuplaa peräkkäin, vuoro siirtyy seuraavalle pelaajalle etkä saa pisteitä</li>
+            </i></ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
